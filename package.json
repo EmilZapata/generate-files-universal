@@ -1,0 +1,15 @@
+{
+  "name": "generate-files-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./tools/generate.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "generate-template-files": "^3.2.1"
+  }
+}
