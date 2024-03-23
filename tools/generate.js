@@ -3,6 +3,21 @@ const { generateTemplateFiles } = require('generate-template-files');
 generateTemplateFiles([
   // Example of generating multiple files
   {
+    option: 'Create Module Hexagonal',
+    defaultCase: '(pascalCase)',
+    entry: {
+      folderPath: './tools/templates/hexagonal',
+    },
+    stringReplacers: ['__module__', '__entity__'],
+    output: {
+      path: './src/modules/__module__(kebabCase)',
+      pathAndFileNameDefaultCase: '(pascalCase)',
+    },
+    onComplete: (results) => {
+      console.log(`results`, results);
+    },
+  },
+  {
     option: 'Create Redux Store',
     defaultCase: '(pascalCase)',
     entry: {
