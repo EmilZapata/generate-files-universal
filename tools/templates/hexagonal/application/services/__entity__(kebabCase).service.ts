@@ -22,12 +22,12 @@ export class __entity__(pascalCase)Service {
     private readonly delete__entity__(pascalCase)UseCase: Delete__entity__(pascalCase)UseCase,
     private readonly findOne__entity__(pascalCase)UseCase: FindOne__entity__(pascalCase)UseCase,
     private readonly table__entity__(pascalCase)UseCase: Table__entity__(pascalCase)UseCase,
-    //private readonly select__entity__(pascalCase)UseCase: Select__entity__(pascalCase)UseCase,
+    private readonly select__entity__(pascalCase)UseCase: Select__entity__(pascalCase)UseCase,
   ) {}
 
-  // async getSelect(query?: Select__entity__(pascalCase)QueryDto) {
-  //   return await this.select__entity__(pascalCase)UseCase.handle(query);
-  // }
+  async getSelect(query?: Select__entity__(pascalCase)QueryDto) {
+    return await this.select__entity__(pascalCase)UseCase.handle(query);
+  }
 
   public async getTable(dto: Table__entity__(pascalCase)DTO) {
     return await this.table__entity__(pascalCase)UseCase.handle(dto);

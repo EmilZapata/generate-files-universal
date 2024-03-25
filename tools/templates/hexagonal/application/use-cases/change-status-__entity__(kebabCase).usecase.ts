@@ -2,7 +2,7 @@ import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
 import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
-import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/student-type.repository';
+import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
 
 import { SuccessResponseDto } from '@shared/utils/dtos/api/response/succes.res.dto';
 import { ChangeStatusReqDto } from '@shared/utils/dtos/api/request/activate.req.dto';
@@ -10,7 +10,7 @@ import { ChangeStatusReqDto } from '@shared/utils/dtos/api/request/activate.req.
 @Injectable()
 export class ChangeStatus__entity__(pascalCase)UseCase {
   constructor(
-    @Inject(__entity__(constantCase)REPOSITORY)
+    @Inject(__entity__(constantCase)_REPOSITORY)
   ) {}
 
   async handle(dto: ChangeStatusReqDto) {

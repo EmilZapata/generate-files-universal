@@ -1,16 +1,16 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
-import { STUDENT_TYPE_REPOSITORY } from '@shared/utils/constants/repositories.cst';
+import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
-import type { StudentTypeRepository } from 'src/students/domain/repository/student-type.repository';
+import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
 
 import { SuccessResponseDto } from '@shared/utils/dtos/api/response/succes.res.dto';
 
 @Injectable()
-export class DeleteStudentTypeUseCase {
+export class Delete__entity__(pascalCase)UseCase {
   constructor(
-    @Inject(STUDENT_TYPE_REPOSITORY)
-    private readonly repository: StudentTypeRepository,
+    @Inject(__entity__(constantCase)_REPOSITORY)
+    private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
   async handle(id: number) {
@@ -23,11 +23,11 @@ export class DeleteStudentTypeUseCase {
       });
     } catch (error) {
       console.error(
-        'Error al eliminar tipo de estudiante - DeleteStudentTypeUseCase:',
+        'Error al eliminar el registro - Delete__entity__(pascalCase)UseCase:',
         error,
       );
       throw new BadRequestException(
-        'Error al eliminar tipo de estudiante',
+        'Error al eliminar el registro',
         error.message,
       );
     }

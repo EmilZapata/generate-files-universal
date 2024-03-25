@@ -24,6 +24,13 @@ export class __entity__(pascalCase)Model {
   status: boolean;
 
   @CreateDateColumn({
+    type: "int",
+    nullable: false,
+    name: "created_by",
+  })
+  createdBy: number;
+
+  @CreateDateColumn({
     type: "timestamp",
     default: () => "CURRENT_TIMESTAMP",
     name: "created_at",

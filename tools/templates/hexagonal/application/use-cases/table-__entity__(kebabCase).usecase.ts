@@ -1,35 +1,32 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
-import { Op, WhereOptions } from 'sequelize';
+import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
-import { STUDENT_TYPE_REPOSITORY } from '@shared/utils/constants/repositories.cst';
-
-import type { StudentTypeRepository } from 'src/students/domain/repository/student-type.repository';
-import type { TableStudentTypeDTO } from '../dto/table-student-type.dto';
+import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
+import type { Table__entity__(pascalCase)DTO } from '../dto/table-__entity__(kebabCase).dto';
 import type { ITableTransfarable } from '@shared/utils/dtos/api/response/table-response.interface';
 
 import { TableResponseDto } from '@shared/utils/dtos/api/response/table-response.res.dto';
-import { StudentTypeEntity } from 'src/students/domain/entities/student-type.entity';
-import { StudentTypeModel } from 'src/students/infrastructure/database/models/student-type.model';
+import { __entity__(pascalCase)Entity } from '@__module__(camelCase)/domain/entities/__entity__(kebabCase).entity';
+import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infrastructure/database/models/__entity__(kebabCase).model';
 
 @Injectable()
-export class TableStudentTypeUseCase {
+export class Table__entity__(pascalCase)UseCase {
   constructor(
-    @Inject(STUDENT_TYPE_REPOSITORY)
-    private readonly repository: StudentTypeRepository,
+    @Inject(__entity__(constantCase)_REPOSITORY)
+    private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
-  public async handle(dto: TableStudentTypeDTO) {
+  public async handle(dto: Table__entity__(pascalCase)DTO) {
     try {
       const { elPerPage, currentPage, ...filtersDto } = dto;
       const filters = this.getFilters(filtersDto);
       const offset = (currentPage - 1) * dto.elPerPage;
-      const count = await this.repository.count(filters);
-      const campusesGot = await this.repository.findAll(
-        elPerPage,
-        offset,
-        filters,
-      );
+      const count = await this.repository.countElements(filters);
+      const campusesGot = await this.repository.findAll({
+        take: elPerPage,
+        skip: offset,
+        ...filters}      );
       const campuses = campusesGot.map((c) => this.convertToTableData(c));
 
       const response: ITableTransfarable = this.generateResponse(
@@ -40,22 +37,22 @@ export class TableStudentTypeUseCase {
       );
 
       return new TableResponseDto({
-        message: 'Tabla entegrada con exito',
+        message: 'Tabla entregada con exito',
         data: response,
       });
     } catch (error) {
       console.error(
-        'Error al obtener tipo de estudiante - TableStudentTypeUseCase:',
+        'Error al obtener la lista de registros - Table__entity__(pascalCase)UseCase:',
         error,
       );
       throw new BadRequestException(
-        'Error al obtener tipo de estudiante',
+        'Error al obtener la lista de registros',
         error.message,
       );
     }
   }
 
-  private convertToTableData(e: StudentTypeEntity) {
+  private convertToTableData(e: __entity__(pascalCase)Entity) {
     const result = {
       id: e.id,
       name: e.name,
@@ -68,20 +65,20 @@ export class TableStudentTypeUseCase {
   }
 
   private getFilters(
-    filters: Omit<TableStudentTypeDTO, 'elPerPage' | 'currentPage'>,
-  ) {
+    filters: Omit<Table__entity__(pascalCase)DTO, 'elPerPage' | 'currentPage'>,
+  ):FindManyOptions< __entity__(pascalCase)Model> {
     const { name, alias, description } = filters;
-    const where: WhereOptions<StudentTypeModel> = {};
+    const options: FindManyOptions<__entity__(pascalCase)Model> = {};
 
     if (alias)
-      where['alias'] = { [Op.iLike]: `%${alias.toLocaleLowerCase()}%` };
-    if (name) where['name'] = { [Op.iLike]: `%${name.toLocaleLowerCase()}%` };
+      options['alias'] = { [Op.iLike]: `%${alias.toLocaleLowerCase()}%` };
+    if (name) options['name'] = { [Op.iLike]: `%${name.toLocaleLowerCase()}%` };
     if (description)
-      where['description'] = {
+      options['description'] = {
         [Op.iLike]: `%${description.toLocaleLowerCase()}%`,
       };
 
-    return where;
+    return options
   }
 
   private generateResponse(

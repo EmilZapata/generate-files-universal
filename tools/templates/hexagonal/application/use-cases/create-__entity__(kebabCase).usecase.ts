@@ -1,23 +1,23 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
-import { STUDENT_TYPE_REPOSITORY } from '@shared/utils/constants/repositories.cst';
+import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
-import type { CreateStudentTypeDto } from '../dto/create-student-type.dto';
-import type { StudentTypeRepository } from 'src/students/domain/repository/student-type.repository';
+import type { Create__entity__(pascalCase)Dto } from '../dto/create-__entity__(kebabCase).dto';
+import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
 
 import { CreateResponseDto } from '@shared/utils/dtos/api/response/create.res.dto';
-import { StudentTypeEntity } from 'src/students/domain/entities/student-type.entity';
+import { __entity__(pascalCase)Entity } from '@__module__(camelCase)/domain/entities/__entity__(kebabCase).entity';
 
 @Injectable()
-export class CreateStudentTypeUseCase {
+export class Create__entity__(pascalCase)UseCase {
   constructor(
-    @Inject(STUDENT_TYPE_REPOSITORY)
-    private readonly repository: StudentTypeRepository,
+    @Inject(__entity__(constantCase)_REPOSITORY)
+    private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
-  async handle(dto: CreateStudentTypeDto) {
+  async handle(dto: Create__entity__(pascalCase)Dto) {
     const result = await this.repository.create({ ...dto });
-    const entity = new StudentTypeEntity(result);
+    const entity = new __entity__(pascalCase)Entity(result);
 
     try {
       return new CreateResponseDto({
@@ -26,11 +26,11 @@ export class CreateStudentTypeUseCase {
       });
     } catch (error) {
       console.error(
-        'Error al crear tipo de estudiantes - CreateStudentTypeUseCase:',
+        'Error al crear el registro - Create__entity__(pascalCase)UseCase:',
         error,
       );
       throw new BadRequestException(
-        'Error al crear tipo de estudiantes',
+        'Error al crear el registro',
         error.message,
       );
     }
