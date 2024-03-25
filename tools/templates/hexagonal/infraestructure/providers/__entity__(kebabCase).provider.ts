@@ -1,4 +1,4 @@
-import { ChangeStatus__entity__(pascalCase)UseCase } from "@__module__(camelCase)/application/use-cases/__entity__(kebabCase)/change-status-__entity__(kebabCase).usecase";
+import { ChangeStatus__entity__(pascalCase)UseCase } from "@__module__(camelCase)/application/use-cases/__entity__(kebabCase)/change-status-__entity__(kebabCase).usercase";
 import { Create__entity__(pascalCase)UseCase } from "@__module__(camelCase)/application/use-cases/__entity__(kebabCase)/create-__entity__(kebabCase).usercase";
 import { Delete__entity__(pascalCase)UseCase } from "@__module__(camelCase)/application/use-cases/__entity__(kebabCase)/delete-__entity__(kebabCase).usercase";
 import { Table__entity__(pascalCase)UseCase } from "@__module__(camelCase)/application/use-cases/__entity__(kebabCase)/table-__entity__(kebabCase).usercase";
