@@ -6,14 +6,15 @@ import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/do
 
 import { SuccessResponseDto } from '@shared/utils/dtos/api/response/succes.res.dto';
 import { ChangeStatusReqDto } from '@shared/utils/dtos/api/request/activate.req.dto';
+import type { IUserLogged } from '@shared/utils/interfaces/user-logged.interface';
 
 @Injectable()
 export class ChangeStatus__entity__(pascalCase)UseCase {
   constructor(
-    @Inject(__entity__(constantCase)_REPOSITORY)
+    @Inject(__entity__(constantCase)_REPOSITORY) private repository: __entity__(pascalCase)Repository
   ) {}
 
-  async handle(dto: ChangeStatusReqDto) {
+  async handle(dto: ChangeStatusReqDto,  userLogged: IUserLogged) {
     try {
       const { status, ids } = dto;
       await this.repository.changeStatus(ids, status);

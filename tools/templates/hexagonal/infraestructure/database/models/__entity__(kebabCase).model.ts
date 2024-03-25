@@ -9,9 +9,10 @@ import {
   DeleteDateColumn, 
   UpdateDateColumn
 } from 'typeorm';
+import { TABLE_NAME } from '@shared/utils/constants/table.cst';
 
 @Entity({
-  name: TABLE_NAMES.__entity__(constantCase),
+  name: TABLE_NAME.__entity__(constantCase),
 })
 export class __entity__(pascalCase)Model {
   @PrimaryGeneratedColumn()

@@ -6,7 +6,7 @@ import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/do
 
 import { SelectEntity } from '@shared/utils/entities/select.entity';
 import { ResponseDto } from '@shared/utils/dtos/api/response/response.res.dto';
-import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infrastructure/database/models/__entity__(kebabCase).model';
+import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infraestructure/database/models/__entity__(kebabCase).model';
 
 @Injectable()
 export class Select__entity__(pascalCase)UseCase {

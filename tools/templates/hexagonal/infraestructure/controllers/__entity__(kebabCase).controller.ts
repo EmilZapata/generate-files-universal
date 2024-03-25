@@ -21,6 +21,7 @@ import {
   ApiTags,
 } from "@nestjs/swagger";
 import { JwtAuthGuard } from "@shared/guards/jwt-auth.guard";
+import { UserLogged } from '@shared/decorators/user-logged.decorator';
 
 
 import { ChangeStatusReqDto } from "@shared/utils/dtos/api/request/activate.req.dto";
@@ -28,9 +29,9 @@ import { CreateResponseDto } from "@shared/utils/dtos/api/response/create.res.dt
 import { ErrorResponseDto } from "@shared/utils/dtos/api/response/error.res.dto";
 import { SuccessResponseDto } from "@shared/utils/dtos/api/response/succes.res.dto";
 import { TableResponseDto } from "@shared/utils/dtos/api/response/table-response.res.dto";
-import { Create__entity__(pascalCase)ReqDTO } from "../dto/request/create-__entity__(kebabCase).request.dto";
-import { Table__entity__(pascalCase)ReqDTO } from "../dto/request/table-__entity__(kebabCase).request.dto";
-import { Update__entity__(pascalCase)ReqDTO } from "../dto/request/update-__entity__(kebabCase).request.dto";
+import { Create__entity__(pascalCase)ReqDto } from "../dto/request/__entity__(kebabCase)/create-__entity__(kebabCase).request.dto";
+import { Table__entity__(pascalCase)ReqDto } from "../dto/request/__entity__(kebabCase)/table-__entity__(kebabCase).request.dto";
+import { Update__entity__(pascalCase)ReqDto } from "../dto/request/__entity__(kebabCase)/update-__entity__(kebabCase).request.dto";
 
 import { __entity__(pascalCase)Service } from "@__module__(camelCase)/application/services/__entity__(kebabCase).service";
 
@@ -52,7 +53,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Listar __entity__(sentenceCase)(s)',
   })
   @Post("table")
-  table(@Body() body: Table__entity__(pascalCase)ReqDTO) {
+  table(@Body() body: Table__entity__(pascalCase)ReqDto) {
     return this.service.getTable(body);
   }
 
@@ -61,30 +62,30 @@ export class __entity__(pascalCase)Controller {
   })
   @Get(":id")
   async find(@Param("id") id: number) {
-    return this.service.findOne(id);
+    return this.service.findOne__entity__(pascalCase)(id);
   }
 
   @Auth({
     description: 'Crear un __entity__(sentenceCase)',
   })
   @Post()
-  create(@Body() body: Create__entity__(pascalCase)ReqDTO) {
-    return this.service.create(body);
+  create(@Body() body: Create__entity__(pascalCase)ReqDto, @UserLogged() user: IUserLogged) {
+    return this.service.create__entity__(pascalCase)(body);
   }
 
   @Auth({
     description: 'Actualizar un __entity__(sentenceCase)',
   })
   @Patch(":id")
-  update(@Param("id") id: number, @Body() body: Update__entity__(pascalCase)ReqDTO) {
-    return this.service.update(id, body);
+  update(@Param("id") id: number, @Body() body: Update__entity__(pascalCase)ReqDto, @UserLogged() user: IUserLogged) {
+    return this.service.update__entity__(pascalCase)(id, body);
   }
 
   @Auth({
     description: 'Cambiar estado de registros',
   })
   @Put("/change-status")
-  changeStatus(@Body() body: ChangeStatusReqDto) {
+  changeStatus(@Body() body: ChangeStatusReqDto, @UserLogged() user: IUserLogged) {
     return this.service.changeStatus(body);
   }
 
@@ -92,7 +93,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Eliminar un __entity__(sentenceCase)',
   })
   @Delete(":id")
-  delete(@Param("id") id: number) {
-    return this.service.delete(id);
+  delete(@Param("id") id: number, @UserLogged() user: IUserLogged) {
+    return this.service.delete__entity__(pascalCase)(id);
   }
 }

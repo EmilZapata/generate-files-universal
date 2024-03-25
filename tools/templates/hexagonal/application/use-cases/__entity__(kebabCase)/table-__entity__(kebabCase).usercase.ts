@@ -8,7 +8,7 @@ import type { ITableTransfarable } from '@shared/utils/dtos/api/response/table-r
 
 import { TableResponseDto } from '@shared/utils/dtos/api/response/table-response.res.dto';
 import { __entity__(pascalCase)Entity } from '@__module__(camelCase)/domain/entities/__entity__(kebabCase).entity';
-import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infrastructure/database/models/__entity__(kebabCase).model';
+import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infraestructure/database/models/__entity__(kebabCase).model';
 
 @Injectable()
 export class Table__entity__(pascalCase)UseCase {
