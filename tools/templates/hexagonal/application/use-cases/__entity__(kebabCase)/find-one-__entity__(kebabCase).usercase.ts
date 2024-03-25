@@ -16,7 +16,7 @@ export class FindOne__entity__(pascalCase)UseCase {
 
   async handle(id: number) {
     try {
-      const result = await this.repository.findOne(id);
+      const result = await this.repository.findOne({ where: { id }});
       const entity = new __entity__(pascalCase)Entity(result);
 
       return new SuccessResponseDto({

@@ -1,8 +1,8 @@
-import { Table__entity__(pascalCase)DTO } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto";
+import { Table__entity__(pascalCase)Dto } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto";
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class Table__entity__(pascalCase)ReqDto implements Table__entity__(pascalCase)DTO {
+export class Table__entity__(pascalCase)ReqDto implements Table__entity__(pascalCase)Dto {
   @ApiProperty({
     description: 'Página actual',
     default: 1,

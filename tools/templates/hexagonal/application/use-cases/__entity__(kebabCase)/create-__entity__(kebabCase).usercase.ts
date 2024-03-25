@@ -2,7 +2,7 @@ import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
 import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
-import type { Create__entity__(pascalCase)Dto } from '../dto/create-__entity__(kebabCase).dto';
+import type { Create__entity__(pascalCase)Dto } from '@__module__(camelCase)/application/dto/__entity__(kebabCase)/create-__entity__(kebabCase).dto';
 import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
 
 import { CreateResponseDto } from '@shared/utils/dtos/api/response/create.res.dto';

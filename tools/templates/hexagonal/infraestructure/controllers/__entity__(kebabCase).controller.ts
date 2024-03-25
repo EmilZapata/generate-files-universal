@@ -34,6 +34,9 @@ import { Table__entity__(pascalCase)ReqDto } from "../dto/request/__entity__(keb
 import { Update__entity__(pascalCase)ReqDto } from "../dto/request/__entity__(kebabCase)/update-__entity__(kebabCase).request.dto";
 
 import { __entity__(pascalCase)Service } from "@__module__(camelCase)/application/services/__entity__(kebabCase).service";
+import { IUserLogged } from '@shared/utils/interfaces/user-logged.interface';
+import { Auth } from '@shared/decorators/auth.decorator';
+import { SelectQueryDto } from '@shared/utils/dtos/query-select/select-query.dto';
 
 @ApiTags("Tipo de estudiante")
 @Controller("student-type")
@@ -44,8 +47,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Listar select de __entity__(sentenceCase)',
   })
   @Get('select')
-  @ApiQuery({ name: "search", required: false, type: String })
-  async getSelect(@Query("search") search?: string) {
+  async getSelect(@Query() search?: SelectQueryDto) {
     return this.service.getSelect(search);
   }
 

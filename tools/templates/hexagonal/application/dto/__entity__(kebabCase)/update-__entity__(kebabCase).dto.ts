@@ -3,10 +3,5 @@ import type { I__entity__(pascalCase) } from "@__module__(camelCase)/domain/inte
 export interface Update__entity__(pascalCase)Dto
   extends Omit<
     I__entity__(pascalCase),
-    | 'id'
-    | 'status'
-    | 'createdAt'
-    | 'updatedAt'
-    | 'deletedAt'
-    | 'createdBy'
+    'id' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'createdBy'
   > {}

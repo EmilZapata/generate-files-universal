@@ -1,12 +1,12 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindManyOptions, Repository, UpdateResult } from 'typeorm';
+import { FindManyOptions, Repository, FindOneOptions, DeleteResult, In } from 'typeorm';
 
 
 import { I__entity__(pascalCase) } from "@__module__(camelCase)/domain/interfaces/__entity__(kebabCase).interface";
 import { __entity__(pascalCase)Repository } from "@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository";
-import { __entity__(pascalCase)Model } from "../model/__entity__(kebabCase).model";
+import { __entity__(pascalCase)Model } from "../models/__entity__(kebabCase).model";
 import { DatabaseInterface } from "@shared/utils/interfaces/database.interface";
 import { SequelizeUtils } from "@shared/utils/functions/sequelize-utils.function";
 import { ErrorResponseDto } from "@shared/utils/dtos/api/response/error.res.dto";
@@ -28,10 +28,10 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
     }
   }
 
-  create__entity__(pascalCase)(body: Partial<I__entity__(pascalCase)>) {
+  create(body: Partial<__entity__(pascalCase)Model>) {
     try {
       const entity = this.__entity__(camelCase)Repository.create(body);
-      return await this.__entity__(camelCase)Repository.save(entity);
+      return this.__entity__(camelCase)Repository.save(entity);
     } catch (error) {
       throw new ErrorResponseDto({
         ...error,
@@ -42,7 +42,7 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
   }
   findAll(
     filters: FindManyOptions<__entity__(pascalCase)Model>
-  ): Promise<__entity__(pascalCase)[]> {
+  ): Promise<__entity__(pascalCase)Model[]> {
     try {
       return this.__entity__(camelCase)Repository.find(filters);
     } catch (error) {
@@ -55,16 +55,14 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
     }
   }
 
-  findOne(id: number): Promise<__entity__(pascalCase)> {
+  findOne(options: FindOneOptions): Promise<__entity__(pascalCase)Model> {
     try {
-      return  this.__entity__(camelCase)Repository.findOne({
-        where: { id },
-      });
+      return  this.__entity__(camelCase)Repository.findOne(options);
     } catch (error) {
       throw new BadRequestException("Error al buscar __entity__(pascalCase):", error);
     }
   }
-  async update__entity__(pascalCase)(id: number, changes: Partial<I__entity__(pascalCase)>): Promise<boolean> {
+  async update(id: number, changes: Partial<I__entity__(pascalCase)>): Promise<__entity__(pascalCase)Model> {
     try {
       const __entity__(camelCase) = await this.__entity__(camelCase)Repository.findOne({ where: { id } });
 
@@ -75,15 +73,14 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
     }
   }
 
-  async delete__entity__(pascalCase)(id: number): Promise<__entity__(pascalCase)> {
+  delete(id: number): Promise<DeleteResult> {
     try {
-      const objFind = await this.__entity__(camelCase)Repository.findOne({
-        where: { id },
-      });
+      // const objFind = await this.__entity__(camelCase)Repository.findOne({
+      //   where: { id },
+      // });
 
-      await this.__entity__(camelCase)Repository.delete(id);
+      return this.__entity__(camelCase)Repository.delete(id);
 
-      return objFind;
     } catch (error) {
       throw new BadRequestException("Error al eliminar __entity__(pascalCase):", error);
     }

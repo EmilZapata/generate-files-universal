@@ -3,7 +3,7 @@ import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
 import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
-import type { Create__entity__(pascalCase)Dto } from '../dto/create-__entity__(kebabCase).dto';
+import type { Update__entity__(pascalCase)Dto } from '@__module__(camelCase)/application/dto/__entity__(kebabCase)/update-__entity__(kebabCase).dto';
 
 import { SuccessResponseDto } from '@shared/utils/dtos/api/response/succes.res.dto';
 import { __entity__(pascalCase)Entity } from '@__module__(camelCase)/domain/entities/__entity__(kebabCase).entity';
@@ -16,7 +16,7 @@ export class Update__entity__(pascalCase)UseCase {
     private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
-  async handle(id: number, dto: Partial<Create__entity__(pascalCase)Dto>, userLogged: IUserLogged) {
+  async handle(id: number, dto: Partial<Update__entity__(pascalCase)Dto>, userLogged: IUserLogged) {
     const result = await this.repository.update(id, { ...dto });
     const entity = new __entity__(pascalCase)Entity(result);
 

@@ -2,16 +2,16 @@ import { Injectable } from "@nestjs/common";
 
 import type { ChangeStatusReqDto } from "@shared/utils/dtos/api/request/activate.req.dto";
 import type { IUserLogged } from "@shared/utils/interfaces/user-logged.interface";
-import type { Create__entity__(pascalCase)Dto } from "../dto/create-__entity__(kebabCase).dto";
-import type { Table__entity__(pascalCase)Dto } from "../dto/table-__entity__(kebabCase).dto";
+import type { Create__entity__(pascalCase)Dto } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/create-__entity__(kebabCase).dto";
+import type { Table__entity__(pascalCase)Dto } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto";
 
-import { ChangeStatus__entity__(pascalCase)UseCase } from "../use-cases/change-status-__entity__(kebabCase).usecase";
-import { Create__entity__(pascalCase)UseCase } from "../use-cases/create-__entity__(kebabCase).usecase";
-import { Delete__entity__(pascalCase)UseCase } from "../use-cases/delete-__entity__(kebabCase).usecase";
-import { FindOne__entity__(pascalCase)UseCase } from "../use-cases/find-one-__entity__(kebabCase).usecase";
-import { Select__entity__(pascalCase)UseCase } from "../use-cases/select-__entity__(kebabCase).usecase";
-import { Table__entity__(pascalCase)UseCase } from "../use-cases/table-__entity__(kebabCase).usecase";
-import { Update__entity__(pascalCase)UseCase } from "../use-cases/update-__entity__(kebabCase).usecase";
+import { ChangeStatus__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/change-status-__entity__(kebabCase).usercase";
+import { Create__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/create-__entity__(kebabCase).usercase";
+import { Delete__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/delete-__entity__(kebabCase).usercase";
+import { FindOne__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/find-one-__entity__(kebabCase).usercase";
+import { Select__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/select-__entity__(kebabCase).usercase";
+import { Table__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/table-__entity__(kebabCase).usercase";
+import { Update__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/update-__entity__(kebabCase).usercase";
 import { SelectQueryDto } from '@shared/utils/dtos/query-select/select-query.dto';
 
 @Injectable()
