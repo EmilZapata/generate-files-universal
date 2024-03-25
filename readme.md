@@ -27,7 +27,7 @@ Si deseas agregar nuevas cosas al proyecto estaremos encantados de que envies tu
 
 # Files universal generator
 
-This litle library allows you generate a architecture templates for your projects. Actually the** hexagonal architecture** is the unique available and it is based on [TypeOrm](https://typeorm.io/ "TypeOrm")
+This litle library allows you generate a architecture templates for your projects. Actually the ** hexagonal architecture** is the unique available and it is based on [TypeOrm](https://typeorm.io/ "TypeOrm")
 
 The steps for implement are very easy.
 
