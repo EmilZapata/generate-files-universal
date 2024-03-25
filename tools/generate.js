@@ -10,7 +10,7 @@ generateTemplateFiles([
     },
     stringReplacers: ['__module__', '__entity__'],
     output: {
-      path: './src/modules/__module__(kebabCase)',
+      path: './src/hexagonal/modules/__module__(kebabCase)',
       pathAndFileNameDefaultCase: '(pascalCase)',
     },
     onComplete: (results) => {
