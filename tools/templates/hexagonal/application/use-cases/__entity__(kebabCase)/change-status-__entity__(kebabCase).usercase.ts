@@ -14,7 +14,7 @@ export class ChangeStatus__entity__(pascalCase)UseCase {
     @Inject(__entity__(constantCase)_REPOSITORY) private repository: __entity__(pascalCase)Repository
   ) {}
 
-  async handle(dto: ChangeStatusReqDto,  userLogged: IUserLogged) {
+  async handle(dto: ChangeStatusReqDto, userLogged: IUserLogged) {
     try {
       const { status, ids } = dto;
       await this.repository.changeStatus(ids, status);

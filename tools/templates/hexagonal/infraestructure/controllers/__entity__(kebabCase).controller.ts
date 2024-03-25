@@ -69,31 +69,31 @@ export class __entity__(pascalCase)Controller {
     description: 'Crear un __entity__(sentenceCase)',
   })
   @Post()
-  create(@Body() body: Create__entity__(pascalCase)ReqDto, @UserLogged() user: IUserLogged) {
-    return this.service.create__entity__(pascalCase)(body);
+  create(@Body() body: Create__entity__(pascalCase)ReqDto, @UserLogged() userLogged: IUserLogged) {
+    return this.service.create__entity__(pascalCase)(body, userLogged);
   }
 
   @Auth({
     description: 'Actualizar un __entity__(sentenceCase)',
   })
   @Patch(":id")
-  update(@Param("id") id: number, @Body() body: Update__entity__(pascalCase)ReqDto, @UserLogged() user: IUserLogged) {
-    return this.service.update__entity__(pascalCase)(id, body);
+  update(@Param("id") id: number, @Body() body: Update__entity__(pascalCase)ReqDto, @UserLogged() userLogged: IUserLogged) {
+    return this.service.update__entity__(pascalCase)(id, body, userLogged);
   }
 
   @Auth({
     description: 'Cambiar estado de registros',
   })
   @Put("/change-status")
-  changeStatus(@Body() body: ChangeStatusReqDto, @UserLogged() user: IUserLogged) {
-    return this.service.changeStatus(body);
+  changeStatus(@Body() body: ChangeStatusReqDto, @UserLogged() userLogged: IUserLogged) {
+    return this.service.changeStatus(body, userLogged);
   }
 
   @Auth({
     description: 'Eliminar un __entity__(sentenceCase)',
   })
   @Delete(":id")
-  delete(@Param("id") id: number, @UserLogged() user: IUserLogged) {
-    return this.service.delete__entity__(pascalCase)(id);
+  delete(@Param("id") id: number, @UserLogged() userLogged: IUserLogged) {
+    return this.service.delete__entity__(pascalCase)(id, userLogged);
   }
 }

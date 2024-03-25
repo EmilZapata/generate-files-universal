@@ -38,8 +38,8 @@ export class __entity__(pascalCase)Service {
     return await this.findOne__entity__(pascalCase)UseCase.handle(id);
   }
 
-  public async create__entity__(pascalCase)(dto: Create__entity__(pascalCase)Dto, user: IUserLogged) {
-    return await this.create__entity__(pascalCase)UseCase.handle(dto, user);
+  public async create__entity__(pascalCase)(dto: Partial<Create__entity__(pascalCase)Dto>, userLogged: IUserLogged) {
+    return await this.create__entity__(pascalCase)UseCase.handle(dto, userLogged);
   }
 
   public async update__entity__(pascalCase)(
@@ -50,8 +50,8 @@ export class __entity__(pascalCase)Service {
     return await this.update__entity__(pascalCase)UseCase.handle(id, dto, userLogged);
   }
 
-  public async changeStatus(dto: ChangeStatusReqDto, user: IUserLogged) {
-    return await this.changeStatusUseCase.handle(dto, user);
+  public async changeStatus(dto: ChangeStatusReqDto, userLogged: IUserLogged) {
+    return await this.changeStatusUseCase.handle(dto, userLogged);
   }
 
   public async delete__entity__(pascalCase)(id: number, userLogged?: IUserLogged) {
