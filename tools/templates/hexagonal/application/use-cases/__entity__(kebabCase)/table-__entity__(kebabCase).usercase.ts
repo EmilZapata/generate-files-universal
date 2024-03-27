@@ -24,15 +24,15 @@ export class Table__entity__(pascalCase)UseCase {
       const filters = this.getFilters(filtersDto);
       const offset = (currentPage - 1) * dto.elPerPage;
       const count = await this.repository.countElements(filters);
-      const campusesGot = await this.repository.findAll({
+      const listResult = await this.repository.findAll({
         take: elPerPage,
         skip: offset,
         ...filters}      );
-      const campuses = campusesGot.map((c) => this.convertToTableData(c));
+      const entites = listResult.map((c) => this.convertToTableData(c));
 
       const response: ITableTransfarable = this.generateResponse(
         count,
-        campuses,
+        entites,
         elPerPage,
         currentPage,
       );
@@ -53,33 +53,23 @@ export class Table__entity__(pascalCase)UseCase {
     }
   }
 
-  private convertToTableData(e: __entity__(pascalCase)Entity) {
-    const result = {
-      id: e.id,
-      name: e.name,
-      alias: e.alias,
-      description: e.description,
-      status: e.status === null || Boolean(e.status),
-    };
-
+  private convertToTableData(entity: I__entity__(pascalCase)): __entity__(pascalCase)Entity {
+    const result = new I__entity__(pascalCase)Entity(entity)
     return result;
   }
 
   private getFilters(
     filters: Omit<Table__entity__(pascalCase)Dto, 'elPerPage' | 'currentPage'>,
-  ):FindManyOptions< __entity__(pascalCase)Model> {
-    const { name, alias, description } = filters;
-    const options: FindManyOptions<__entity__(pascalCase)Model> = {};
+  ):FindManyOptions<__entity__(pascalCase)Model> {
+    const { createdBy, status } = filters;
+    const where: FindOptionsWhere<__entity__(pascalCase)Model> = {};
 
-    if (alias)
-      options['alias'] = { [Op.iLike]: `%${alias.toLocaleLowerCase()}%` };
-    if (name) options['name'] = { [Op.iLike]: `%${name.toLocaleLowerCase()}%` };
-    if (description)
-      options['description'] = {
-        [Op.iLike]: `%${description.toLocaleLowerCase()}%`,
-      };
+    if (createdBy) where.createdBy = createdBy;
+    if (status === true || status === false) where.status = status;
 
-    return options
+    return {
+      where,
+    };
   }
 
   private generateResponse(
