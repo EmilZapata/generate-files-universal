@@ -38,8 +38,8 @@ import { IUserLogged } from '@shared/utils/interfaces/user-logged.interface';
 import { Auth } from '@shared/decorators/auth.decorator';
 import { SelectQueryDto } from '@shared/utils/dtos/query-select/select-query.dto';
 
-@ApiTags("Tipo de estudiante")
-@Controller("student-type")
+@ApiTags("__entity__(titleCase)")
+@Controller("__entity__(kebabCase)")
 export class __entity__(pascalCase)Controller {
   constructor(private readonly service: __entity__(pascalCase)Service) {}
 
