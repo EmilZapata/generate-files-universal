@@ -84,7 +84,7 @@ export class Table__entity__(pascalCase)UseCase {
 
   private generateResponse(
     count: number,
-    campuses: object[],
+    entities: object[],
     elPerPage: number,
     currentPage: number,
   ) {
@@ -92,7 +92,7 @@ export class Table__entity__(pascalCase)UseCase {
       currentPage,
       elPerPage,
       totalElements: count,
-      data: campuses,
+      data: entities,
       totalPages: Math.floor(count / elPerPage) + 1,
     };
   }

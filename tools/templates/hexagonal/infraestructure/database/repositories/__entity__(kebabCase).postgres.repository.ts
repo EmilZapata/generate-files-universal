@@ -28,7 +28,7 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
     }
   }
 
-  create(body: Partial<__entity__(pascalCase)Model>) {
+  create(body: Partial<I__entity__(pascalCase)>): Promise<__entity__(pascalCase)Model> {
     try {
       const entity = this.__entity__(camelCase)Repository.create(body);
       return this.__entity__(camelCase)Repository.save(entity);
