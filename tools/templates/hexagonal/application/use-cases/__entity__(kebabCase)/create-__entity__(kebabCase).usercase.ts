@@ -16,7 +16,7 @@ export class Create__entity__(pascalCase)UseCase {
     private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
-  async handle(dto: Create__entity__(pascalCase)Dto, user: IUserLogged) {
+  async handle(dto: Partial<Create__entity__(pascalCase)Dto>, user: IUserLogged) {
     const result = await this.repository.create({ ...dto });
     const entity = new __entity__(pascalCase)Entity(result);
 
