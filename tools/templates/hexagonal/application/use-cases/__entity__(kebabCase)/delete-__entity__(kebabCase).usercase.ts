@@ -6,6 +6,7 @@ import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/do
 
 import { SuccessResponseDto } from '@shared/utils/dtos/api/response/succes.res.dto';
 import type { IUserLogged } from '@shared/utils/interfaces/user-logged.interface';
+import { DeleteResult } from 'typeorm';
 
 @Injectable()
 export class Delete__entity__(pascalCase)UseCase {
@@ -16,7 +17,11 @@ export class Delete__entity__(pascalCase)UseCase {
 
   async handle(id: number, userLogged: IUserLogged) {
     try {
-      this.repository.delete(id);
+      const result: DeleteResult = await this.repository.delete(id);
+
+      if (!result.affected) {
+        throw new BadRequestException('Error al eliminar el registro');
+      }
 
       return new SuccessResponseDto({
         message: 'Se elimino con exito!',
