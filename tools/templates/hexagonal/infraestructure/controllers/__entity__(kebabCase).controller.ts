@@ -10,6 +10,7 @@ import {
   Put,
   Query,
   UseGuards,
+  ParseIntPipe
 } from "@nestjs/common";
 import {
   ApiBadRequestResponse,
@@ -63,7 +64,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Buscar un __entity__(sentenceCase)',
   })
   @Get(":id")
-  async find(@Param("id") id: number) {
+  async find(@Param("id", ParseIntPipe) id: number) {
     return this.service.findOne__entity__(pascalCase)(id);
   }
 
@@ -79,7 +80,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Actualizar un __entity__(sentenceCase)',
   })
   @Patch(":id")
-  update(@Param("id") id: number, @Body() body: Update__entity__(pascalCase)ReqDto, @UserLogged() userLogged: IUserLogged) {
+  update(@Param("id", ParseIntPipe) id: number, @Body() body: Update__entity__(pascalCase)ReqDto, @UserLogged() userLogged: IUserLogged) {
     return this.service.update__entity__(pascalCase)(id, body, userLogged);
   }
 
@@ -95,7 +96,7 @@ export class __entity__(pascalCase)Controller {
     description: 'Eliminar un __entity__(sentenceCase)',
   })
   @Delete(":id")
-  delete(@Param("id") id: number, @UserLogged() userLogged: IUserLogged) {
+  delete(@Param("id", ParseIntPipe) id: number, @UserLogged() userLogged: IUserLogged) {
     return this.service.delete__entity__(pascalCase)(id, userLogged);
   }
 }
