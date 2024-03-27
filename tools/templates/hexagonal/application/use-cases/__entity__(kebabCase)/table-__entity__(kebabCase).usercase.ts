@@ -4,7 +4,7 @@ import { FindManyOptions } from 'typeorm';
 import { __entity__(constantCase)_REPOSITORY } from '@shared/utils/constants/repositories.cst';
 
 import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository';
-import type { Table__entity__(pascalCase)DTO } from '@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto';
+import type { Table__entity__(pascalCase)Dto } from '@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto';
 import type { ITableTransfarable } from '@shared/utils/dtos/api/response/table-response.interface';
 
 import { TableResponseDto } from '@shared/utils/dtos/api/response/table-response.res.dto';
@@ -18,7 +18,7 @@ export class Table__entity__(pascalCase)UseCase {
     private readonly repository: __entity__(pascalCase)Repository,
   ) {}
 
-  public async handle(dto: Table__entity__(pascalCase)DTO) {
+  public async handle(dto: Table__entity__(pascalCase)Dto) {
     try {
       const { elPerPage, currentPage, ...filtersDto } = dto;
       const filters = this.getFilters(filtersDto);
@@ -66,7 +66,7 @@ export class Table__entity__(pascalCase)UseCase {
   }
 
   private getFilters(
-    filters: Omit<Table__entity__(pascalCase)DTO, 'elPerPage' | 'currentPage'>,
+    filters: Omit<Table__entity__(pascalCase)Dto, 'elPerPage' | 'currentPage'>,
   ):FindManyOptions< __entity__(pascalCase)Model> {
     const { name, alias, description } = filters;
     const options: FindManyOptions<__entity__(pascalCase)Model> = {};
