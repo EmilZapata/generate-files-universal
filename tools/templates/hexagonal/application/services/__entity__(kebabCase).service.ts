@@ -13,6 +13,7 @@ import { Select__entity__(pascalCase)UseCase } from "../use-cases/__entity__(keb
 import { Table__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/table-__entity__(kebabCase).usercase";
 import { Update__entity__(pascalCase)UseCase } from "../use-cases/__entity__(kebabCase)/update-__entity__(kebabCase).usercase";
 import { SelectQueryDto } from '@shared/utils/dtos/query-select/select-query.dto';
+import { Update__entity__(pascalCase)Dto } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/update-__entity__(kebabCase).dto";
 
 @Injectable()
 export class __entity__(pascalCase)Service {
@@ -44,7 +45,7 @@ export class __entity__(pascalCase)Service {
 
   public async update__entity__(pascalCase)(
     id: number,
-    dto: Partial<Create__entity__(pascalCase)Dto>,
+    dto: Partial<Update__entity__(pascalCase)Dto>,
     userLogged?: IUserLogged
   ) {
     return await this.update__entity__(pascalCase)UseCase.handle(id, dto, userLogged);
