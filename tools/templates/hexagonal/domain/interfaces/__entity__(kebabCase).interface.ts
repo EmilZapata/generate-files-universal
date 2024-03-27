@@ -1,5 +1,5 @@
 export interface I__entity__(pascalCase) {
-
+  id: number
   /* Defaults */
   createdBy: number;
   status: boolean;
