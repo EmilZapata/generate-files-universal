@@ -36,14 +36,14 @@ export class __entity__(pascalCase)Model {
     default: () => "CURRENT_TIMESTAMP",
     name: "created_at",
   })
-  createAt: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({
     type: "timestamp",
     default: () => "CURRENT_TIMESTAMP",
     name: "updated_at",
   })
-  updateAt: Date;
+  updatedAt: Date;
 
   @DeleteDateColumn({
     type: "timestamp",
