@@ -10,6 +10,7 @@ import type { ITableTransfarable } from '@shared/utils/dtos/api/response/table-r
 import { TableResponseDto } from '@shared/utils/dtos/api/response/table-response.res.dto';
 import { __entity__(pascalCase)Entity } from '@__module__(camelCase)/domain/entities/__entity__(kebabCase).entity';
 import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infraestructure/database/models/__entity__(kebabCase).model';
+import { I__entity__(pascalCase) } from '@__module__(camelCase)/domain/interfaces/__entity__(kebabCase).interface';
 
 @Injectable()
 export class Table__entity__(pascalCase)UseCase {
@@ -54,7 +55,7 @@ export class Table__entity__(pascalCase)UseCase {
   }
 
   private convertToTableData(entity: I__entity__(pascalCase)): __entity__(pascalCase)Entity {
-    const result = new I__entity__(pascalCase)Entity(entity)
+    const result = new __entity__(pascalCase)Entity(entity)
     return result;
   }
 

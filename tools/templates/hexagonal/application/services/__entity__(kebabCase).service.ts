@@ -27,9 +27,9 @@ export class __entity__(pascalCase)Service {
     private readonly select__entity__(pascalCase)UseCase: Select__entity__(pascalCase)UseCase,
   ) {}
 
-  async getSelect(query?: SelectQueryDto) {
-    return await this.select__entity__(pascalCase)UseCase.handle(query.search);
-  }
+  // async getSelect(query?: SelectQueryDto) {
+  //   return await this.select__entity__(pascalCase)UseCase.handle(query.search);
+  // }
 
   public async getTable(dto: Table__entity__(pascalCase)Dto) {
     return await this.table__entity__(pascalCase)UseCase.handle(dto);

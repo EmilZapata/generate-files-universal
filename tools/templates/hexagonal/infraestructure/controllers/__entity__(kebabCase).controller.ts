@@ -44,13 +44,13 @@ import { SelectQueryDto } from '@shared/utils/dtos/query-select/select-query.dto
 export class __entity__(pascalCase)Controller {
   constructor(private readonly service: __entity__(pascalCase)Service) {}
 
-  @Auth({
-    description: 'Listar select de __entity__(sentenceCase)',
-  })
-  @Get('select')
-  async getSelect(@Query() search?: SelectQueryDto) {
-    return this.service.getSelect(search);
-  }
+  // @Auth({
+  //   description: 'Listar select de __entity__(sentenceCase)',
+  // })
+  // @Get('select')
+  // async getSelect(@Query() search?: SelectQueryDto) {
+  //   return this.service.getSelect(search);
+  // }
 
   @Auth({
     description: 'Listar __entity__(sentenceCase)(s)',

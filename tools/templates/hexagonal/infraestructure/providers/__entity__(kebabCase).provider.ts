@@ -15,7 +15,7 @@ const __entity__(constantCase)_USE_CASES = [
   FindOne__entity__(pascalCase)UseCase,
   Update__entity__(pascalCase)UseCase,
   Delete__entity__(pascalCase)UseCase,
-  Select__entity__(pascalCase)UseCase,
+  //Select__entity__(pascalCase)UseCase,
   ChangeStatus__entity__(pascalCase)UseCase,
 ];
 

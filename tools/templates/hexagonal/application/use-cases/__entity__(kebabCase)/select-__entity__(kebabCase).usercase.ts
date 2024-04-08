@@ -7,6 +7,7 @@ import type { __entity__(pascalCase)Repository } from '@__module__(camelCase)/do
 import { SelectEntity } from '@shared/utils/entities/select.entity';
 import { ResponseDto } from '@shared/utils/dtos/api/response/response.res.dto';
 import { __entity__(pascalCase)Model } from '@__module__(camelCase)/infraestructure/database/models/__entity__(kebabCase).model';
+import { FindOptionsWhere } from 'typeorm';
 
 @Injectable()
 export class Select__entity__(pascalCase)UseCase {
@@ -17,7 +18,7 @@ export class Select__entity__(pascalCase)UseCase {
 
   public async handle(search?: string) {
     try {
-      const where: WhereOptions<__entity__(pascalCase)Model> = {};
+      // const where: FindOptionsWhere<__entity__(pascalCase)Model> = {};
 
       if (search) {
         // where[Op.or] = [
@@ -26,13 +27,13 @@ export class Select__entity__(pascalCase)UseCase {
         // ];
       }
 
-      const allElements = await this.repository.findAll(10, 0, where);
-      const data = allElements.map((c) => this.transformToSelect(c));
+      // const allElements = await this.repository.findAll(10, 0, where);
+      // const data = allElements.map((c) => this.transformToSelect(c));
 
-      return new ResponseDto({
-        message: 'Select obtenido!',
-        data,
-      });
+      // return new ResponseDto({
+      //   message: 'Select obtenido!',
+      //   data,
+      // });
     } catch (error) {
       console.error(
         'Error al obtener los datos del Select - Select__entity__(pascalCase)UseCase:',
