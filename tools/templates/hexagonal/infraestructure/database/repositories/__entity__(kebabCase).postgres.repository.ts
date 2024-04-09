@@ -7,8 +7,6 @@ import { FindManyOptions, Repository, FindOneOptions, DeleteResult, In } from 't
 import { I__entity__(pascalCase) } from "@__module__(camelCase)/domain/interfaces/__entity__(kebabCase).interface";
 import { __entity__(pascalCase)Repository } from "@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository";
 import { __entity__(pascalCase)Model } from "../models/__entity__(kebabCase).model";
-import { DatabaseInterface } from "@shared/utils/interfaces/database.interface";
-import { SequelizeUtils } from "@shared/utils/functions/sequelize-utils.function";
 import { ErrorResponseDto } from "@shared/utils/dtos/api/response/error.res.dto";
 
 @Injectable()
