@@ -24,7 +24,7 @@ export class __entity__(pascalCase)Model {
   })
   status: boolean;
 
-  @CreateDateColumn({
+  @Column({
     type: "int",
     nullable: false,
     name: "created_by",
