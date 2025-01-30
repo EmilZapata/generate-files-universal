@@ -3,14 +3,29 @@ const { generateTemplateFiles } = require('generate-template-files');
 generateTemplateFiles([
   // Example of generating multiple files
   {
-    option: 'Create Module Hexagonal',
+    option: 'Create Module Clean Architecture',
     defaultCase: '(pascalCase)',
     entry: {
-      folderPath: './tools/templates/hexagonal',
+      folderPath: './tools/templates/clean-architecture',
     },
     stringReplacers: ['__module__', '__entity__'],
     output: {
-      path: './src/hexagonal/modules/__module__(kebabCase)',
+      path: './src/clean-architecture/modules/__module__(kebabCase)',
+      pathAndFileNameDefaultCase: '(pascalCase)',
+    },
+    onComplete: (results) => {
+      console.log(`results`, results);
+    },
+  },
+  {
+    option: 'Create Module Clean Architecture with Zod',
+    defaultCase: '(pascalCase)',
+    entry: {
+      folderPath: './tools/templates/clean-architecture-zod',
+    },
+    stringReplacers: ['__module__', '__entity__'],
+    output: {
+      path: './src/clean-architecture-zod/modules/__module__(kebabCase)',
       pathAndFileNameDefaultCase: '(pascalCase)',
     },
     onComplete: (results) => {
