@@ -10,14 +10,16 @@ import {
   UpdateDateColumn
 } from 'typeorm';
 import { TABLE_NAME } from '@shared/utils/constants/table.cst';
+import { I__entity__(pascalCase) } from "@__module__(camelCase)/domain/interfaces/__entity__(kebabCase).interface";
 
 @Entity({
   name: TABLE_NAME.__entity__(constantCase),
 })
-export class __entity__(pascalCase)Model {
+export class __entity__(pascalCase)Model implements I__entity__(pascalCase) {
   @PrimaryGeneratedColumn()
   id: number;
 
+  /* ==== Defaults ==== */
   @Column({
      type: 'boolean',
     default: true

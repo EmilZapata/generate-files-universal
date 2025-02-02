@@ -1,6 +1,5 @@
 import { Table__entity__(pascalCase)Dto } from "@__module__(camelCase)/application/dto/__entity__(kebabCase)/table-__entity__(kebabCase).dto";
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class Table__entity__(pascalCase)ReqDto implements Table__entity__(pascalCase)Dto {
   @ApiProperty({
@@ -14,21 +13,4 @@ export class Table__entity__(pascalCase)ReqDto implements Table__entity__(pascal
     default: 10,
   })
   elPerPage: number;
-
-  @ApiProperty({
-    description: 'Estado del Curso',
-    default: true,
-    required: false,
-  })
-  @IsOptional()
-  @IsBoolean()
-  status: boolean;
-
-  @ApiProperty({
-    description: 'El id del usuario que creo el Curso',
-    required: false,
-  })
-  @IsOptional()
-  @IsNumber()
-  createdBy: number;
 }

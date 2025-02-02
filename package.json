@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "generate-template-files": "^3.2.1"
+  },
+  "dependencies": {
+    "generate-files-backend": "file:"
   }
 }

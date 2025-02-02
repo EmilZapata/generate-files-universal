@@ -8,11 +8,12 @@ import { I__entity__(pascalCase) } from "@__module__(camelCase)/domain/interface
 import { __entity__(pascalCase)Repository } from "@__module__(camelCase)/domain/repository/__entity__(kebabCase).repository";
 import { __entity__(pascalCase)Model } from "../models/__entity__(kebabCase).model";
 import { ErrorResponseDto } from "@shared/utils/dtos/api/response/error.res.dto";
+import { CONNECTION_DB } from '@core/utils/constants/connection-db.cst';
 
 @Injectable()
 export class __entity__(pascalCase)PostgresRepository implements __entity__(pascalCase)Repository {
   constructor(
-    @InjectRepository(__entity__(pascalCase)Model) private __entity__(camelCase)Repository: Repository<__entity__(pascalCase)Model>
+    @InjectRepository(__entity__(pascalCase)Model, CONNECTION_DB.POSTGRES) private __entity__(camelCase)Repository: Repository<__entity__(pascalCase)Model>
   ) {}
 
   public countElements(
@@ -55,7 +56,9 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
 
   findOne(options: FindOneOptions): Promise<__entity__(pascalCase)Model> {
     try {
-      return  this.__entity__(camelCase)Repository.findOne(options);
+      const __entity__(camelCase) = this.__entity__(camelCase)Repository.findOne(options);
+
+      return __entity__(camelCase) as Promise<__entity__(pascalCase)Model>
     } catch (error) {
       throw new BadRequestException("Error al buscar __entity__(pascalCase):", error);
     }
@@ -63,6 +66,8 @@ export class __entity__(pascalCase)PostgresRepository implements __entity__(pasc
   async update(id: number, changes: Partial<I__entity__(pascalCase)>): Promise<__entity__(pascalCase)Model> {
     try {
       const __entity__(camelCase) = await this.__entity__(camelCase)Repository.findOne({ where: { id } });
+
+      if( !__entity__(camelCase) ) throw Error("No existe la entidad")
 
       this.__entity__(camelCase)Repository.merge(__entity__(camelCase), changes);
       return this.__entity__(camelCase)Repository.save(__entity__(camelCase));
